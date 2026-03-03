@@ -2,11 +2,11 @@ import './App.css'
 import Button from './components/Button/Button'
 import Header from './components/Header'
 import WayToTeach from './components/WayToTeach'
-import {ways} from './data'
+import {ways, declarations} from './data'
 import { useState } from 'react'
 
 function App() {
-  const [content, setContent] = useState('нажми на кнопку')
+  const [content, setContent] = useState(null)
   // 'нажми на кнопку' - начальное значение
   // content - значение текущее
   // setContent - функция для изменения значения
@@ -14,8 +14,8 @@ function App() {
 
 
     function clickListener(str){
-        console.log(str)
-        setContent(str)
+      setContent(str)
+      console.log(str)  //старое значение, изменение будет когда перерисуется компонент
     }
 
   return (
@@ -29,9 +29,12 @@ function App() {
       <section>
         <h3>Другая секция</h3>
         
-        <Button onClick={() => clickListener('button1')}>Робота</Button>
-        <Button onClick={() => clickListener('button2')}>Отдых</Button>
-        <p>{content}</p>
+        <Button isActive = {content === 'button1'} onClick={() => clickListener('button1')}>Робота</Button>
+        <Button isActive = {content === 'button2'} onClick={() => clickListener('button2')}>Отдых</Button>
+        { content ? <p>{declarations[content]}</p>: <div>ничего нету</div>} 
+        { content && <p>{declarations[content]}</p>} 
+        { !content && <p>нету контента</p>} 
+        
       </section>
     </div>
   )

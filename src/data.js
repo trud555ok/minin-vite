@@ -15,3 +15,9 @@ export const ways = [
         age: 45,
     },
 ]
+
+export const declarations = {
+    pr: 'Начало работы', 
+    button1: 'Работа это всегда хорошо!!!!',
+    button2: 'Но отдых всегда лучше работы!',
+}
