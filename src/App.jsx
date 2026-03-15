@@ -1,5 +1,5 @@
 import './App.css'
-import Header from './components/Header'
+import Header from './components/Header/Header'
 import TeacherSection from './components/TeacherSection'
 import DiferenceSection from './components/DiferenceSection'
 import TabSection from './components/TabSection'
